@@ -1,0 +1,10 @@
+# 公開するのは LP に必要なものだけ(_preview・tools・_illust_export は上げない)
+/*
+!/.gitignore
+!/README.md
+!/index.html
+!/style.css
+!/main.js
+!/event.js
+!/og.png
+!/assets/
