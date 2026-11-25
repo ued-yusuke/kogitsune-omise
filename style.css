@@ -1,13 +1,13 @@
 /* ==========================================================
    おみせやさんごっこ こぎつね校 LP
    スマホ優先。900px 以上で PC レイアウト
-   色は版画の4色(赤・青・黄・紺)+生成り
+   色は版画の4色(赤・青・黄・紺)+生成り。2026-11-25「発色よく+赤橙を少し淡く」に決定
    文字: 本文はベタ組み/見出しは約物だけ詰める/英字ラベルは字間を空ける
    ========================================================== */
 :root{
-  --paper:#FBF6EA; --white:#FFFDF8; --line:#E2D7BE;
+  --paper:#FFF8EC; --white:#FFFFFF; --line:#EADCC0;
   --ink:#1E2440; --ink2:#3D4360;
-  --red:#E5482D; --red-d:#B5321C; --blue:#3B6CC4; --yellow:#F5C544; --orange:#F39A1E;
+  --red:#F75330; --red-d:#BE391B; --blue:#2563E0; --yellow:#FFC81F; --orange:#FF9714;
   --gut:22px; --r:22px;
   --f:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
 }
@@ -33,7 +33,7 @@ h2,h3,dd strong{word-break:auto-phrase}
 .t-e{margin-right:-.38em}        /* 」 */
 
 /* ---------- header ---------- */
-.hd{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);background:rgba(251,246,234,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--gut);background:rgba(255,248,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .hd-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
 .hd-logo img{width:136px}
 .hd-school{font-weight:900;font-size:13px;letter-spacing:.04em;color:#fff;background:var(--orange);border-radius:99px;padding:2px 11px 3px;line-height:1.5;white-space:nowrap}
@@ -119,7 +119,7 @@ h2,h3,dd strong{word-break:auto-phrase}
 .uline+br+.uline::after{transition-delay:1.25s}
 .rv.on .uline::after{transform:scaleX(1)}
 /* MESSAGE: 地をうすい黄にして、左上と右下の扇形(前後のセクションと同じ紙の色)を境目に見せる */
-.msg{background:#F9E8B4}
+.msg{background:#FFE48A}
 .msg .ttl-en{background:var(--white)}
 .msg-body{text-align:center;font-size:16px;line-height:2.1;letter-spacing:.04em;font-weight:700}
 .msg-body p+p{margin-top:1.5em}
@@ -142,7 +142,7 @@ h2,h3,dd strong{word-break:auto-phrase}
 .pt-tx{font-size:15.5px;line-height:1.8;word-break:auto-phrase}
 
 /* ---------- flow ---------- */
-.flow{overflow:hidden;background:#E6EEF9}   /* 当日のながれ: うすい青の地に白い札を3枚、下向きの三角でつなぐ */
+.flow{overflow:hidden;background:#DCE8FF}   /* 当日のながれ: うすい青の地に白い札を3枚、下向きの三角でつなぐ */
 .hill{display:none;position:absolute;z-index:1}
 .step{position:relative;display:grid;gap:22px;margin-top:62px;background:var(--white);border-radius:28px;padding:16px 16px 26px}
 .step{--c:var(--blue);--ct:#fff;border:3px solid var(--c);box-shadow:0 7px 0 var(--c)}
