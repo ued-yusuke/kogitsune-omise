@@ -19,11 +19,12 @@
 - `assets/photo` … 写真(生成したイメージ。実際の開催写真が手に入ったら同じファイル名で差し替え、「※写真はイメージです」を消す)
 - `assets/brand` … 公式ロゴ・キャラクター(本部支給データ)
 
-## GitHub Pages で公開する
-1. GitHub で新しいリポジトリを作る(Public)
-2. このフォルダの中身をそのままアップロード(`index.html` が一番上に来るように。`_preview` と `tools` は上げなくてよい)
-3. Settings → Pages → Branch を `main` / `/ (root)` にして Save
-4. 数分後に `https://<ユーザー名>.github.io/<リポジトリ名>/` で公開される
+## 公開先
+- URL: https://ued-yusuke.github.io/kogitsune-omise/ (リポジトリ ued-yusuke/kogitsune-omise、GitHub Pages・main の / )
+- 上げるファイルは `.gitignore` で選んでいる(`_preview`・`tools`・`_illust_export` は上げない)
+- 直したら、このフォルダで `git add -A && git commit -m "内容" && git push`。1〜2分で反映される
+- いまは検索に出さない設定(`index.html` の `<meta name="robots" content="noindex,nofollow">`)。西澤さんの確認がすんだら、この1行を消して push する
+- `og.png` は SNS でシェアしたときの画像(1200×630)
 
 ## 手元で確認する
 このフォルダで `python3 -m http.server 8000` → ブラウザで `http://localhost:8000`
