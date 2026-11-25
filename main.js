@@ -61,7 +61,7 @@
     var pc = w >= 600;
     var R = pc ? 46 : 28;                      // こぶの半径(基準)
     var line = pc ? 3 : 2.5, drop = pc ? 10 : 8;
-    var mx = pc ? 24 : 14, my = pc ? 30 : 12;  // 枠の外へはみ出す量
+    var mx = pc ? 16 : 10, my = pc ? 22 : 8;  // 枠の外へはみ出す量
     var W = w + mx * 2, H = h + my * 2 + drop;
     var Rmax = R * (1 + CLOUD.big / 2);
     var cx = W / 2, cy = (H - drop) / 2;

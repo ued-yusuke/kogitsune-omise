@@ -66,8 +66,8 @@ h2,h3,dd strong{word-break:auto-phrase}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding-bottom:40px}
-.hero-stage{position:relative;padding:31vw var(--gut) calc(47vw + 16px);text-align:center;overflow:hidden}
-.hero-cloud{position:relative;z-index:2;isolation:isolate;margin:0 auto;padding:44px 20px 60px;background:url(assets/cloud-m.svg) center/100% 100% no-repeat}
+.hero-stage{position:relative;padding:31vw var(--gut) calc(47vw + 8px);text-align:center;overflow:hidden}
+.hero-cloud{position:relative;z-index:2;isolation:isolate;margin:0 auto;padding:40px 18px 54px;background:url(assets/cloud-m.svg) center/100% 100% no-repeat}
 .hero-cloud.is-drawn{background:none}
 .cloud-bg{position:absolute;left:0;top:0;z-index:-1;overflow:visible;pointer-events:none}   /* main.js が枠の実寸に合わせて、同じ大きさの丸を等間隔に並べて描く */
 .hero-label{max-width:330px;margin:0 auto;color:var(--red)}   /* 弧に沿わせた小見出し。SVG なので枠の幅に合わせて縮み、はみ出さない */
@@ -283,8 +283,8 @@ h2,h3,dd strong{word-break:auto-phrase}
   .sp.pc{display:block}
 
   .hero{padding-bottom:64px}
-  .hero-stage{max-width:1360px;margin:0 auto;min-height:880px;padding:126px 40px 352px}
-  .hero-cloud{width:760px;padding:64px 60px 88px;background-image:url(assets/cloud-pc.svg)}
+  .hero-stage{max-width:1360px;margin:0 auto;min-height:870px;padding:126px 40px 340px}
+  .hero-cloud{width:720px;padding:56px 54px 78px;background-image:url(assets/cloud-pc.svg)}
   .hero-cloud.is-drawn{background:none}
   .hero-label{max-width:430px;margin-bottom:8px}
   .hero-title{font-size:80px;line-height:1.26}
@@ -400,7 +400,7 @@ h2,h3,dd strong{word-break:auto-phrase}
 }
 @media (min-width:900px) and (max-width:1160px){
   .hero-title{font-size:68px}
-  .hero-cloud{width:640px}
+  .hero-cloud{width:610px}
   .hero-info{grid-template-columns:1fr;text-align:center}
   .hero-facts{grid-row:auto;justify-content:center;margin-bottom:18px}
   .ap-fox,.ap-fox2{display:none}
