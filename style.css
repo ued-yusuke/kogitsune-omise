@@ -13,7 +13,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--f);font-weight:500;color:var(--ink);background:var(--paper);font-size:15.5px;line-height:1.85;overflow-x:hidden;padding-bottom:78px;
+body{font-family:var(--f);font-weight:500;color:var(--ink);background:var(--paper);font-size:15.5px;line-height:1.85;overflow-x:hidden;padding-bottom:96px;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .36 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
@@ -67,7 +67,9 @@ h2,h3,dd strong{word-break:auto-phrase}
 /* ---------- hero ---------- */
 .hero{position:relative;padding-bottom:40px}
 .hero-stage{position:relative;padding:31vw var(--gut) 47vw;text-align:center;overflow:hidden}
-.hero-cloud{position:relative;z-index:2;margin:0 auto;padding:44px 20px 60px;background:url(assets/cloud-m.svg) center/100% 100% no-repeat}
+.hero-cloud{position:relative;z-index:2;isolation:isolate;margin:0 auto;padding:44px 20px 60px;background:url(assets/cloud-m.svg) center/100% 100% no-repeat}
+.hero-cloud.is-drawn{background:none}
+.cloud-bg{position:absolute;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none}   /* main.js が枠の実寸に合わせて、同じ大きさの丸を等間隔に並べて描く */
 .hero-label{max-width:330px;margin:0 auto;color:var(--red)}   /* 弧に沿わせた小見出し。SVG なので枠の幅に合わせて縮み、はみ出さない */
 .hero-label svg{display:block;width:100%;height:auto;overflow:visible}
 .hero-label text{font-family:inherit;font-weight:900;font-size:16px;letter-spacing:.06em;fill:currentColor}
@@ -143,10 +145,10 @@ h2,h3,dd strong{word-break:auto-phrase}
 .flow{overflow:hidden;background:#E6EEF9}   /* 当日のながれ: うすい青の地に白い札を3枚、下向きの三角でつなぐ */
 .hill{display:none;position:absolute;z-index:1}
 .step{position:relative;display:grid;gap:22px;margin-top:62px;background:var(--white);border-radius:28px;padding:16px 16px 26px}
-.step{--c:var(--blue);--ct:#fff;border:3px solid var(--c)}
+.step{--c:var(--blue);--ct:#fff;border:3px solid var(--c);box-shadow:0 7px 0 var(--c)}
 .step:nth-of-type(2){--c:var(--red)}
 .step:nth-of-type(3){--c:var(--yellow);--ct:var(--ink)}
-.step:not(:last-of-type)::after{content:"";position:absolute;left:50%;bottom:-49px;width:46px;height:30px;margin-left:-23px;background:var(--c);clip-path:polygon(0 0,100% 0,50% 100%)}
+.step:not(:last-of-type)::after{content:"";position:absolute;left:50%;bottom:-52px;width:46px;height:30px;margin-left:-23px;background:var(--c);clip-path:polygon(0 0,100% 0,50% 100%)}
 .step-txt{padding:0 6px}
 .step:first-of-type{margin-top:0}
 /* 「第1部|親子いっしょに」: 青い札+紺の太字 */
@@ -253,12 +255,13 @@ h2,h3,dd strong{word-break:auto-phrase}
 .ft-copy{font-size:12px;color:#A9AEC4;margin-top:22px;letter-spacing:.04em}
 
 /* ---------- dock (スマホ下部の申込バー) ---------- */
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,253,248,.97);backdrop-filter:blur(8px);border-top:2px solid var(--ink);translate:0 110%;transition:translate .35s ease}
-.dock.on{translate:0 0}
+.dock{position:fixed;left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 7px 7px 20px;background:var(--white);border:2px solid var(--ink);border-radius:99px;box-shadow:0 5px 0 var(--ink);translate:0 calc(100% + 30px);opacity:0;transition:translate .35s ease,opacity .25s;pointer-events:none}   /* 画面の下に浮かぶ丸いバー。Safari の下のツールバーと重ならないよう、端から離して置く */
+.dock.on{translate:0 0;opacity:1;pointer-events:auto}
 .dock p{line-height:1.35}
-.dock b{display:block;font-weight:900;font-size:16px;color:var(--red)}
-.dock small{font-size:12.5px;font-weight:700;color:var(--ink2)}
-.dock .btn{min-height:50px;font-size:16.5px;padding:0 24px;box-shadow:0 4px 0 var(--red-d);flex:none}
+.dock b{display:block;font-weight:900;font-size:15px;color:var(--red);white-space:nowrap}
+.dock small{font-size:12.5px;font-weight:700;color:var(--ink2);white-space:nowrap}
+.dock .btn{min-height:48px;font-size:16px;padding:0 22px;box-shadow:none;flex:none}
+.dock .btn:hover{transform:none}
 
 /* ==========================================================
    PC (900px〜)
@@ -282,6 +285,7 @@ h2,h3,dd strong{word-break:auto-phrase}
   .hero{padding-bottom:64px}
   .hero-stage{max-width:1360px;margin:0 auto;min-height:840px;padding:120px 40px 316px}
   .hero-cloud{width:760px;padding:64px 60px 88px;background-image:url(assets/cloud-pc.svg)}
+  .hero-cloud.is-drawn{background:none}
   .hero-label{max-width:430px;margin-bottom:8px}
   .hero-title{font-size:80px;line-height:1.26}
   .hero-sub{max-width:380px;margin-top:18px}
@@ -328,7 +332,7 @@ h2,h3,dd strong{word-break:auto-phrase}
   .flow{padding-bottom:70px}
   .flow .in{max-width:1040px}
   .step{grid-template-columns:1fr 380px;gap:48px;align-items:center;margin-top:84px;padding:40px 44px 46px}
-  .step:not(:last-of-type)::after{bottom:-65px;width:60px;height:40px;margin-left:-30px}
+  .step:not(:last-of-type)::after{bottom:-68px;width:60px;height:40px;margin-left:-30px}
   .step-txt{padding:0}
   .step.rev{grid-template-columns:380px 1fr}
   .step.rev .step-fig{order:-1}
@@ -401,9 +405,9 @@ h2,h3,dd strong{word-break:auto-phrase}
   .hero-facts{grid-row:auto;justify-content:center;margin-bottom:18px}
   .ap-fox,.ap-fox2{display:none}
 }
-@media (prefers-reduced-motion:reduce){
-  .f1,.f2,.f3,.sway{animation:none}
-  .rv{opacity:1;translate:0 0;transition:none}
-  .uline::after{transition:none;transform:none}
+@media (prefers-reduced-motion:reduce){   /* 「視差効果を減らす」の人には、止めずに小さく・ゆっくり。横すべりはやめてフェードだけ */
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -3px}}
+  .f1,.f2,.f3{animation-duration:9s}
+  .rv{translate:0 0;transition:opacity .9s ease}
   html{scroll-behavior:auto}
 }
